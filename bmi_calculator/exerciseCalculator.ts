@@ -8,6 +8,22 @@ interface calculatedExercise {
   average: number;
 }
 
+const parseArguments = (args: Array<string>) => {
+  if (args.length < 4)
+    throw new Error(
+      "Not enough arguments were provided. Please provide a target followed by at least one day's recordings."
+    );
+
+  args.slice(2).forEach((element) => {
+    if (isNaN(Number(element)))
+      throw new Error("Provided values were not all numbers.");
+  });
+
+  const goal = Number(args[2]);
+  const days = args.slice(3).map((n) => Number(n));
+  return { days, goal };
+};
+
 const calculateExercises = (
   days: number[],
   targetHours: number
@@ -51,4 +67,9 @@ const calculateExercises = (
   };
 };
 
-console.log(calculateExercises([1, 3, 1, 0, 0, 2], 2));
+console.log(
+  calculateExercises(
+    parseArguments(process.argv).days,
+    parseArguments(process.argv).goal
+  )
+);

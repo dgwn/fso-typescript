@@ -1,3 +1,6 @@
+const height: number = Number(process.argv[2]);
+const weight: number = Number(process.argv[3]);
+
 const calculateBmi = (height: number, weight: number): string => {
   const bmi = weight / ((height * height) / 10000);
   console.log(bmi);
@@ -11,4 +14,4 @@ const calculateBmi = (height: number, weight: number): string => {
   return "Something went wrong.";
 };
 
-console.log(calculateBmi(180, 100));
+console.log(calculateBmi(height, weight));
