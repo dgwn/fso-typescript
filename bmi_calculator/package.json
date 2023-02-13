@@ -6,13 +6,20 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "calculatebmi": "ts-node bmicalculator",
-    "calculateExercises": "ts-node exercisecalculator"
+    "calculateExercises": "ts-node exercisecalculator",
+    "start": "ts-node index.ts",
+    "dev": "ts-node-dev index.ts"
   },
   "author": "",
   "license": "MIT",
   "devDependencies": {
+    "@types/express": "^4.17.17",
     "@types/node": "^18.13.0",
     "ts-node": "^10.9.1",
+    "ts-node-dev": "^2.0.0",
     "typescript": "^4.8.4"
+  },
+  "dependencies": {
+    "express": "^4.18.2"
   }
 }
